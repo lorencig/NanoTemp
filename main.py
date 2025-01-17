@@ -17,25 +17,14 @@ def format_timestamp(unix_timestamp):
     return formatted_time, dt
 
 def initialize_firebase():
-    """Initialize Firebase connection if not already initialized."""
-    if not firebase_admin._apps:
-        try:
-            # Handle the certificate whether it's a JSON string or dict
-            if isinstance(st.secrets["FIREBASE"]["CERT"], str):
-                cert_dict = json.loads(st.secrets["FIREBASE"]["CERT"])
-            else:
-                cert_dict = st.secrets["FIREBASE"]["CERT"]
-            
-            cred = credentials.Certificate(cert_dict)
-            firebase_admin.initialize_app(cred, {
-                'databaseURL': st.secrets["FIREBASE"]["DATABASE_URL"]
-            })
-            return True
-        except json.JSONDecodeError:
-            st.error("Error: Firebase certificate is not valid JSON")
-        except Exception as e:
-            st.error(f"Firebase initialization error: {str(e)}")
-        return False
+    if not firebase_admin._apps:  # Ensure Firebase is initialized only once
+        firebase_secrets = st.secrets["firebase"]
+        cred = credentials.Certificate(firebase_secrets)
+        firebase_admin.initialize_app(cred, {
+            'dhttps://nanotemp1-2558e-default-rtdb.asia-southeast1.firebasedatabase.app/'
+        })
+
+initialize_firebase()
 
 def fetch_temperature_data():
     """Fetch temperature data from Firebase and process it."""
