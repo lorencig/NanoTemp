@@ -49,7 +49,7 @@ def fetch_temperature_data():
 def create_temperature_chart(df):
     """Create Altair chart from temperature DataFrame."""
     return alt.Chart(df).mark_line().encode(
-        x=alt.X('Timestamp:T', title='Time', axis=alt.Axis(format='%H:%M')),
+        x=alt.X('Timestamp:T', title='Time (UTC)', axis=alt.Axis(format='%H:%M')),
         y=alt.Y('Temperature:Q', title='Temperature (°C)'),
         tooltip=['FormattedTime', 'Temperature']
     ).properties(
