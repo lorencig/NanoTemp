@@ -6,11 +6,10 @@ from datetime import datetime, timezone, timedelta
 import pandas as pd
 import time
 
-
 # Access Firebase credentials from secrets
 FIREBASE_DATABASE_URL = st.secrets["FIREBASE"]["DATABASE_URL"]
-#FIREBASE_CERT = ".streamlit/firebase_key.json"
-FIREBASE_CERT = st.secrets["FIREBASE"]["CERT"]
+FIREBASE_CERT = credentials.Certificate("firebase_key.json")
+#FIREBASE_CERT = st.secrets["FIREBASE"]["CERT"]
 
 # Global DataFrame to store Firebase data
 df = None
@@ -24,7 +23,7 @@ def format_timestamp(unix_timestamp):
 def initialize_firebase():
     """Initialize Firebase connection if not already initialized."""
     if not firebase_admin._apps:
-        cred = credentials.Certificate(FIREBASE_CERT)
+        cred = credentials.Certificate("firebase_key.json")
         firebase_admin.initialize_app(cred, {
             'databaseURL': FIREBASE_DATABASE_URL
         })
