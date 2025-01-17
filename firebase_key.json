@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nanotemp-app",
+  "private_key_id": "2b6d4e86c07befdb7c52aa78de9b880081e53df4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0mY0uIqtIIzBp\nVoLanPVz/IonyJ25Dz2u4q9rimXwCqUGeNld90wCYazmoLbgpbduo6W4w2AIes+B\noTaha146SOte6UvyB1oDbSAQcXlRa+jbkZID3eVcE7ow7e0CtlnqszWy0aKtuILJ\ngARft8n9PPGlwyIsRTDIS+14DeH1ay/Y59PpC3tqU+lCwnjjkjOvKwmHRB4H5Kfn\nyn2/DG0DMy04qGIpowo+4CjpnW3uu+F9CEONbKBhXhugX+ZkLV6FRp89gGKqzO4+\n/uWSWKljo971TR0rUv6B1b4qT9PVJeTW1zGFuv1W4HncZ5c5c8YmRtWXPO0L2RTa\naxyzgTmHAgMBAAECggEAQcvZlC/cUC1F03LJvKTHhgjBOqpL0CK92cvLljX3WoM+\nSUPZCXNx1UJJsEJoLiMh16S2WUCQ6bX4iKU31opb64cqfUsouJY2FJ56upLk3KWg\nUfJQjKkYiTnEsVPVcBIIY0oEK9BVYM4ilA/YSBkY9XJxJW+YsSFKGwcSjpUcOAFG\n23FuygxAal+tmaiaFUTjdRFNkochvL6+PcCJA5pGCXg3vlnaPMd4xGYlwXZhYY6l\nIVPBl9gInlGnCEU8BSC1VaRXmrmKD8O+tovwteYw+xB7IjuoDpgrL91OWWniFyKm\n1na4WwaIHun25vuY4bO5ZOaV3V6h8uMUyFB7YyXD/QKBgQDa9cBHniIbbWEf4JR0\nPPr907roOVquytTwd3nC1ifwUkzLBBl86Pd/RtUV4F3DRJo6MGQ7htEYdWiK/bpu\neFLLKLXSLE6CE9GwVKEtXFxtAdkOTvhBgdsM3zvTYtUQ3289jmBNTkiZbtxJgLgj\nM1ETq/XyG0a41pNKuZPV1z6TPQKBgQDTJpS9+lNqEhSDMdqw2Elk6nIfc4b5GIxi\niFRNkSL01PymjQoE0PkcCAvotIM154egfcZY8qRh2Zx78sitBG/BHP/Ss2YNVCjd\nD96TxkEKCOy4gdjpFUIUZ934wLYpFysb5zz3+stq4EeWnkX6g/ilJNNavmTviNU8\nOHKUmmI8EwKBgAZYNqEcoOpgif7td//CQJeYSgMunkUQVYk+PQX7RJ7/E4CSdtaa\nvYkvmT8QCEd/NmTXQCBFcMufo07buUo4LFX8sQANDp1QS7QrT5xL39W8xvhWK3Vi\neOFvmoEujPP3NXb4KCw1R39CqhlrJGrIsuG6Ct9gEPWMKipxJCp/GS4VAoGAPg8y\n3Ht8lMpnmP/IJP4M5Eo77J6J5yCd8j/bd0jXG1qWP2Vosm2xKdn7lhOoFOnN5Q/S\ngkYeplvNMGj1LlUFe57IWec8cWJw+Dg31PsKFqb03G3dkPQcjd7RUNFjOMSEeRkH\nxGLD8s+ketJeAvlS1Ubzj9Ix3G09LwvwMVkG0l0CgYAI1JIGJMniTHVpcd7X+kj+\nzVvgIrMkDBOsQbUCiMjoil/AcHdX+MPEPz1hDhwPcAagdllk5zNKUVtes5gUpnko\nwrzw4iTPFwe5sty0lvOzpPG/kNgb9d0kJBklpSb90/KBaYiKIeEHtfz80WK+zUQh\n3JhKTe/FaaKzPu7FyMaVMg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-mszmr@nanotemp-app.iam.gserviceaccount.com",
+  "client_id": "105900202671525206481",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-mszmr%40nanotemp-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
