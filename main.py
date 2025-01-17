@@ -62,7 +62,7 @@ def create_temperature_chart(df):
         y=alt.Y('Temperature:Q', title='Temperature (°C)'),
         tooltip=['FormattedTime', 'Temperature']
     ).properties(
-        title="Real-Time Temperature - Sensor 1",
+        title="Real-Time Temperature Data",
         width=800,
         height=400
     )
