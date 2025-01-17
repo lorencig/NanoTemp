@@ -164,7 +164,7 @@ def main():
 
     <div class="footer">
         <div class="footer-text">
-            From Bolzaneto with Love!
+            From Bolzaneto with ❤️!
         </div>
     </div>
     """
