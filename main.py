@@ -22,7 +22,7 @@ def format_timestamp(unix_timestamp):
 def initialize_firebase():
     """Initialize Firebase connection if not already initialized."""
     if not firebase_admin._apps:
-        cred = credentials.Certificate("firebase_key.json")
+        cred = credentials.Certificate(FIREBASE_CERT)
         firebase_admin.initialize_app(cred, {
             'databaseURL': FIREBASE_DATABASE_URL
         })
