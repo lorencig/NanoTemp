@@ -61,10 +61,8 @@ def initialize_firebase():
     if not firebase_admin._apps:  # Ensure Firebase is initialized only once
         cred = credentials.Certificate(firebase_config)
         firebase_admin.initialize_app(cred, {
-            'dhttps://nanotemp1-2558e-default-rtdb.asia-southeast1.firebasedatabase.app/'
+            'databaseURL': 'https://nanotemp1-2558e-default-rtdb.asia-southeast1.firebasedatabase.app/'
         })
-
-initialize_firebase()
 
 def fetch_temperature_data():
     """Fetch temperature data from Firebase and process it."""
