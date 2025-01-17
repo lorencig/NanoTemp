@@ -5,10 +5,7 @@ import altair as alt
 from datetime import datetime, timezone, timedelta
 import pandas as pd
 import time
-
-# Access Firebase credentials from secrets
-FIREBASE_DATABASE_URL = st.secrets["FIREBASE"]["DATABASE_URL"]
-FIREBASE_CERT = st.secrets["FIREBASE"]["CERT"]
+import json
 
 # Global DataFrame to store Firebase data
 df = None
