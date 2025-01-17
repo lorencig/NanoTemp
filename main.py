@@ -7,9 +7,8 @@ import pandas as pd
 import time
 
 # Access Firebase credentials from secrets
-FIREBASE_DATABASE_URL = "https://nanotemp-app-default-rtdb.europe-west1.firebasedatabase.app"
-FIREBASE_CERT = credentials.Certificate("firebase_key.json")
-#FIREBASE_CERT = st.secrets["FIREBASE"]["CERT"]
+FIREBASE_DATABASE_URL = st.secrets["FIREBASE"]["DATABASE_URL"]
+FIREBASE_CERT = st.secrets["FIREBASE"]["CERT"]
 
 # Global DataFrame to store Firebase data
 df = None
