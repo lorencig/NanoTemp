@@ -10,6 +10,47 @@ import json
 # Global DataFrame to store Firebase data
 df = None
 
+firebase_config = {
+    "type": "service_account",
+    "project_id": "nanotemp1-2558e",
+    "private_key_id": "4c056fc87886d4873f0b7f6c12a6a28164dd3b02",
+    "private_key": """-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJjomr4MjYRMQg
+9NxnQxSVOPsoZ8SFe/fQTUQgXt7M+iq7hNximdzglgCzdm9GEl0wCTxWEsQvdVJR
+Fl/GHlnoNaTD1gnkkSGOuXvWkVUfQ80UmUSkhUHpFafyIJeOLzF7ukrAoyVXyS0O
+goZxQh29tN/3+Y0noi6i+NQs/JtcZGB3JWeU+KDf2QraOrovbtNvdFNKKqDwhhGk
+GwtMzUvgljdiPIwwC8/mWDTa3kVuZSdS9agfnPLjTGQSAaOn2PzpdAnhfarRyzTf
+Q5ZDKPnosiP0lFHoaT9hx1AhKYoSCIepkVsg1yI5blDM0FwMrHCtsY/sT1nq1dZ3
+rRVNdvfjAgMBAAECggEAIiq4+LtuoIarrqCDeje7Vf5mSPeqLyyQGi325fvfDeU8
+eDQx/b7yW9nhvYpOm5TCWkG+iiK9QgRD034U9ysu93ecehwe6jGV/DFCJmHViaq/
+KYY/xhnWzfG/WgKfXllurHgsctJVIrf2HNcQfkOEciOmsc0KWhUajcLbiNK7bWJD
+V1+hVygMCu5uABRbKivY0im623zfVuDB6I5vY4XTcHkLlXRiFi3h0WwPlQGuv+Tm
+RGNy2RNv+hfQg417cBxXm5A2lSNaGVGqTlhc/TDY+aTxWcysFtaCO3NU1MFXS2TQ
+t9JJXcKwgDhnfJXDZVMfOjljPsKHcrlHX4Oa57G3JQKBgQD2t89uj2hupz2DpruH
+kDLURWhRfSYXYrNdjmmbUbD8U7GBtd67x8BzMfUenZkxR0oA8SWTrGMlM4BZciN8
+UbJSacAxTPyztFtNzSz6zcuUCSi1nO+l2EObtmgulZuNjYLbJwpY/SqF5RrgxeKy
+6KeRgicEmTIOKBwG94VdI8Ei5QKBgQDRI8VZCWcPKULku97kH83uLlrWfGI/PraJ
+s2fE5YaKmoMqd+6eFE1YCvmm52SJ2zt/wrSAya2GocHF8mXJd6NZNzNmKWxBYTaI
+iPzw2CTVkIAEl0PwUTUoS9sBa7Rr6lBHpWFc3CKKW5BQN0pjNrH70QY381Ejf4PC
+meIwHqKbJwKBgQCxv1vC267xiavX3Zfd4xW7uQWfL/rxfjqbfK65J/HK2MFaIh2G
+TDNqyuM+W2yzBBlc9F+ONPR5KNGfn4vRVUqT9XxyCHVHQvlE5D0ztHCnBrI9pgNC
+CL0swg3tAfw/z2QnX8kks8CfFqB2sBrTqqqPOqXBul1Ftb/7hPigUdIjwQKBgQCP
+ZS5fwQGntIvIF0RZN7FTuPbRj1ExugcgXSEuMI3SJOUATmEOhC8Pyd6o4IjfuLCQ
+BekLULyozen1liDSRTR77ExSpN4z6bqhXQPJAvomcEBGZYzQjm2bJn+P9tArGepX
+ZX5fVBRety84wOBBLHRWi1fvLuaYJ0spN6eNhMPLCwKBgGlDm/PLtQumoQHe9wVx
+XnC1GSiyfLAx+VK6Z9Hy62nulS0KkCZLbi+JPGL2aM0FF3+jzqdfugCup9zWnPnW
+focReitwNnDH6TPgcjERuG1oVLCuQX9WAXR3h3NCC7eJvE45QDfX+eWNf9ARbS8/
+Pp0HfPLA7HhQHSZx2ZUGLA8l
+-----END PRIVATE KEY-----""",
+    "client_email": "firebase-adminsdk-fbsvc@nanotemp1-2558e.iam.gserviceaccount.com",
+    "client_id": "110528558667803201842",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc@nanotemp1-2558e.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+}
+
 def format_timestamp(unix_timestamp):
     """Convert Unix timestamp to formatted datetime string (hh:mm:ss dd/mm/yyyy)."""
     dt = datetime.fromtimestamp(int(unix_timestamp), tz=timezone.utc)
@@ -18,8 +59,7 @@ def format_timestamp(unix_timestamp):
 
 def initialize_firebase():
     if not firebase_admin._apps:  # Ensure Firebase is initialized only once
-        firebase_secrets = st.secrets["firebase"]
-        cred = credentials.Certificate(firebase_secrets)
+        cred = credentials.Certificate(firebase_config)
         firebase_admin.initialize_app(cred, {
             'dhttps://nanotemp1-2558e-default-rtdb.asia-southeast1.firebasedatabase.app/'
         })
