@@ -26,7 +26,7 @@ def initialize_firebase():
 
             # Initialize the Firebase app
             firebase_admin.initialize_app(cred, {
-                'databaseURL': st.secrets["firebase"]["DATABASE_URL"]
+                'databaseURL': st.secrets["ADRESS"]["URL"]
             })
             return True
         except Exception as e:
