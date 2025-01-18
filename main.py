@@ -22,9 +22,17 @@ def initialize_firebase():
         try:
             # Load Firebase credentials from st.secrets
             cert_data = dict(st.secrets["firebase"]["CERT"])
-            cred = credentials.Certificate(cert_data)
+
+            # Convert CERT data to JSON string (if needed)
+            cert_json = json.dumps(cert_data, indent=4)
+
+            # Save the JSON data temporarily for the credentials
+            cert_dict = json.loads(cert_json)
 
             # Initialize the Firebase app
+            cred = credentials.Certificate(cert_dict)
+
+            # Initialize the Firebase app with the database URL
             firebase_admin.initialize_app(cred, {
                 'databaseURL': st.secrets["ADRESS"]["URL"]
             })
