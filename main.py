@@ -20,10 +20,13 @@ def initialize_firebase():
     """Initialize Firebase connection if not already initialized."""
     if not firebase_admin._apps:
         try:
-            # Load the Firebase credentials from a file
-            cred = credentials.Certificate(".streamlit/firebase_key.json")
+            # Load Firebase credentials from st.secrets
+            cert_data = dict(st.secrets["firebase"]["CERT"])
+            cred = credentials.Certificate(cert_data)
+
+            # Initialize the Firebase app
             firebase_admin.initialize_app(cred, {
-                'databaseURL': st.secrets["FIREBASE"]["DATABASE_URL"]
+                'databaseURL': st.secrets["firebase"]["DATABASE_URL"]
             })
             return True
         except Exception as e:
