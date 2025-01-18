@@ -39,7 +39,7 @@ def initialize_firebase():
             return True
         except Exception as e:
             st.error(f"Firebase initialization error: {str(e)}")
-        return False
+        return False 
 
 def fetch_temperature_data():
     """Fetch temperature data from Firebase and process it."""
