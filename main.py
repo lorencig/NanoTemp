@@ -94,6 +94,8 @@ def main():
     chart_placeholder = st.empty()
     latest_temp_placeholder = st.empty()
     latest_time_placeholder = st.empty()
+    highest_temp_placeholder = st.empty()
+    lowest_temp_placeholder = st.empty()
 
     # Download section
     st.header('Download Temperature Data')
@@ -127,8 +129,16 @@ def main():
         # Update latest temperature and timestamp
         latest_temp = df.iloc[-1]["Temperature"]
         latest_time = df.iloc[-1]["FormattedTime"]
+        # Find highest and lowest temperature
+        highest_temp = df['Temperature'].max()
+        lowest_temp = df['Temperature'].min()
+        highest_temp_time = df[df['Temperature'] == highest_temp]['FormattedTime'].values[0]
+        lowest_temp_time = df[df['Temperature'] == lowest_temp]['FormattedTime'].values[0]
+
         latest_temp_placeholder.markdown(f"<h3 style='font-size:30px;'>**Latest Temperature:** {latest_temp} °C</h3>", unsafe_allow_html=True)
         latest_time_placeholder.write(f"**Recorded at:** {latest_time}")
+        highest_temp_placeholder.markdown(f"<h3 style='font-size:30px;'>**Highest Temperature:** {highest_temp} °C Recorded at {highest_temp_time}</h3>", unsafe_allow_html=True)
+        lowest_temp_placeholder.markdown(f"<h3 style='color:blue; font-size:30px;'>**Lowest Temperature:** {lowest_temp} °C (Recorded at {lowest_temp_time})</h3>", unsafe_allow_html=True)
 
         # Update chart
         chart = create_temperature_chart(df)
@@ -194,6 +204,8 @@ def main():
             latest_time = df.iloc[-1]["FormattedTime"]
             latest_temp_placeholder.write(f"**Latest Temperature:** {latest_temp} °C")
             latest_time_placeholder.write(f"**Recorded at:** {latest_time}")
+            highest_temp_placeholder.markdown(f"**Highest Temperature:** <span style='color:red;'>**{highest_temp}** °C</span> at {highest_temp_time}", unsafe_allow_html=True)
+            lowest_temp_placeholder.write(f"**Lowest Temperature:** <span style='color:#00FFFF;'>**{lowest_temp}** °C</span> at {lowest_temp_time}", unsafe_allow_html=True)
             # Update chart
             chart = create_temperature_chart(df)
             chart_placeholder.altair_chart(chart, use_container_width=True)
